@@ -113,7 +113,7 @@ namespace EduCore.API
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
-                    policy => policy.WithOrigins() // Thêm link deploy của bạn vào đây sau này
+                    policy => policy.WithOrigins("https://edu-core-frontend-topaz.vercel.app") // Thêm link deploy của bạn vào đây sau này
                                     .AllowAnyHeader()
                                     .AllowAnyMethod()
                                     .AllowCredentials());
