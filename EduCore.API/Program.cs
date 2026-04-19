@@ -148,12 +148,15 @@ namespace EduCore.API
             var app = builder.Build();
 
             // Configure HTTP pipeline
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "EduCore API V1");
+            //    c.RoutePrefix = "swagger"; // Để truy cập bằng đường dẫn /swagger
+            //});
+
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EduCore API V1");
-                c.RoutePrefix = "swagger"; // Để truy cập bằng đường dẫn /swagger
-            });
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");
