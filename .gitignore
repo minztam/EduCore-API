@@ -1,3 +1,16 @@
+## === Visual Studio & Build Artifacts ===
 .vs/
 [Bb]in/
 [Oo]bj/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+## === Cấu hình bảo mật (QUAN TRỌNG) ===
+# CHẶN file chứa giá trị gốc (Connection String, Key thật)
+appsettings.Development.json
+
+# CHẶN các file bí mật khác nếu có
+secrets.json
+*.Secrets.json

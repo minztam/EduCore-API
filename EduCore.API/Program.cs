@@ -27,6 +27,11 @@ namespace EduCore.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            var allowedOrigins = new[] {
+                "http://localhost:3000",                             // Cho phép chạy ở Local
+                "https://edu-core-frontend-topaz.vercel.app"         // Cho phép trang web đã deploy trên Vercel
+            };
+
             // --- CẤU HÌNH DATABASE ---
             // 1. Dòng cũ SQL Server (Đã comment)
             // builder.Services.AddDbContext<EduCoreDbContext>(options =>
@@ -113,7 +118,7 @@ namespace EduCore.API
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
-                    policy => policy.WithOrigins("https://edu-core-frontend-topaz.vercel.app") // Thêm link deploy của bạn vào đây sau này
+                    policy => policy.WithOrigins(allowedOrigins) // Thêm link deploy của bạn vào đây sau này
                                     .AllowAnyHeader()
                                     .AllowAnyMethod()
                                     .AllowCredentials());
